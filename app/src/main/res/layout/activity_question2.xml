@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mindmie.androiddemo.QuestionActivity"
+    android:orientation="vertical"
+    android:background="@drawable/questionnair_bg">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:text="3 of 10 "/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How often you exercise per week?"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="30sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_male_selector"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text="No Exercise"/>
+        <Button
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_male_selector"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text="1-3 days per week"/>
+        <Button
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_male_selector"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text="3-5 days per week"/>
+        <Button
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_male_selector"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text="everyday"/>
+        <Button
+            android:layout_width="match_parent"
+            android:background="@drawable/btn_male_selector"
+            android:layout_height="wrap_content"
+            android:text="2 time per day"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
