@@ -23,14 +23,34 @@
         <activity
             android:name=".Question1Activity"
             android:label="Question"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Question2Activity"
+            android:label="Question"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".Question3Activity"
+            android:label="Question"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".Question4Activity"
+            android:label="Question"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".Question5Activity"
+            android:label="Question"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".Question6Activity"
+            android:label="Question"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".Question7Activity"
             android:label="Question"
             android:theme="@style/AppTheme">
 
         </activity>
-        <activity android:name=".Question3Activity"
+        <activity android:name=".Question8Activity"
             android:label="Question"
             android:theme="@style/AppTheme">
             <intent-filter>

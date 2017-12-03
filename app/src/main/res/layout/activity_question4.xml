@@ -14,7 +14,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:text="4 of 10 "/>
+        android:text="5 of 10 "/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,14 +22,14 @@
         android:layout_marginTop="50dp"
         android:orientation="vertical">
         <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Which are meats that you prefer?"
-        android:textAlignment="center"
-        android:textColor="#000"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textSize="25sp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Which are favors that you prefer?"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="25sp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,37 +56,37 @@
 
             android:orientation="vertical">
             <Button
-                android:id="@+id/btn_pork"
+                android:id="@+id/btn_sour"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_next_selector"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
-                android:text="Pork" />
+                android:text="Sour" />
             <Button
-                android:id="@+id/btn_chicken"
+                android:id="@+id/btn_sweet"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_next_selector"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
-                android:text="Chicken"/>
+                android:text="Sweet"/>
             <Button
-                android:id="@+id/btn_beef"
+                android:id="@+id/btn_salty"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_next_selector"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
-                android:text="Beef" />
+                android:text="Salty" />
             <Button
-                android:id="@+id/btn_fish"
+                android:id="@+id/btn_spicy"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_next_selector"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
-                android:text="Seafood"/>
+                android:text="Spicy"/>
 
         </RadioGroup>
         <Button
