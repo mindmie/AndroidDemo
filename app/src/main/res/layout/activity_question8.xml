@@ -14,21 +14,31 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:text="9 of 10 "/>
+        android:text="10 of 10 "/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter your goal "
+            android:text="How many days "
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="30sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="do you want for weight control? "
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -52,7 +62,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.5"
-                android:src="@drawable/weight" />
+                android:src="@drawable/ic_date_range_black_24dp" />
             <EditText
                 android:id="@+id/et_weight"
                 android:layout_weight="0.5"
@@ -62,7 +72,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="20dp"
                 android:inputType="number"
-                android:hint="weight (kg)"
+                android:hint="Number of day (day)"
                 android:textAlignment="center"
                 android:textSize="20sp" />
         </LinearLayout>

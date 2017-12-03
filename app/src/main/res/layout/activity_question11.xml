@@ -14,31 +14,21 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:text="6 of 10 "/>
+        android:text="8 of 10 "/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical">
+        android:layout_marginTop="50dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Enter weight and height "
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Which is the thing that you more serious?"
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="30sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Preference dish or cost dish"
-            android:textAlignment="center"
-            android:textColor="#000"
-            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -51,37 +41,39 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.5">
-            <Button
-                android:id="@+id/btn_preferDish"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.5"
+                android:src="@drawable/weight" />
+            <EditText
+                android:id="@+id/et_weight"
+                android:layout_weight="0.5"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/btn_next_selector"
-                android:text="Preference dish"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:inputType="number"
+                android:hint="weight (kg)"
                 android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
         </LinearLayout>
-        <LinearLayout
+
+        <Button
+            android:id="@+id/btn_next"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.5">
-            <Button
-                android:id="@+id/btn_costDish"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/btn_next_selector"
-                android:text="cost dish"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_male_selector"
+            android:text="NEXT" />
     </LinearLayout>
 
 </LinearLayout>

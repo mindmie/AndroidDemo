@@ -5,5 +5,27 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
+
     <string name="title_activity_login">LoginActivity</string>
+
+
+    <string-array name="flavour">
+        <item>Nothing</item>
+        <item>Sour</item>
+        <item>Sweet</item>
+        <item>Salty</item>
+        <item>Spicy</item>
+
+    </string-array>
+    <string-array name="meat">
+        <item>Nothing</item>
+        <item>Pork</item>
+        <item>Chicken</item>
+        <item>Beef</item>
+        <item>Seafood</item>
+
+
+        <item></item>
+    </string-array>
+
 </resources>

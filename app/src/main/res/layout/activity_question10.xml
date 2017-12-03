@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mindmie.androiddemo.QuestionActivity"
+    android:orientation="vertical"
+    android:background="@drawable/questionnair_bg">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:text="9 of 10 "/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ranking the most prefer meat"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="25sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:src="@drawable/first"/>
+            <Spinner
+                android:id="@+id/spn_first_flavour"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:entries="@array/meat"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:src="@drawable/second"/>
+            <Spinner
+                android:id="@+id/spn_second_flavour"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:entries="@array/meat"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:src="@drawable/third"/>
+            <Spinner
+                android:id="@+id/spn_third_flavour"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:entries="@array/meat"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/btn_male_selector"
+            android:text="Next"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
