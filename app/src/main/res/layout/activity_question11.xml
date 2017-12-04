@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter weight and height "
+            android:text="Enter your goal weight"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAlignment="center"
@@ -54,7 +54,7 @@
                 android:layout_weight="0.5"
                 android:src="@drawable/weight" />
             <EditText
-                android:id="@+id/et_weight"
+                android:id="@+id/et_goal_weight"
                 android:layout_weight="0.5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
