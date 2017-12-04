@@ -1,5 +1,6 @@
 package com.example.mindmie.androiddemo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -34,8 +35,10 @@ public class RegisActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validateEditEmail()) {
+                    startActivity(new Intent(getApplicationContext(),Question1Activity.class));
                     Toast.makeText(RegisActivity.this, "Okay. Create Your Account Complete.", Toast.LENGTH_SHORT).show();
                     // SnackBar?
+
                 }
                 else{
                     Toast.makeText(RegisActivity.this, "Pleat Fill in Again", Toast.LENGTH_SHORT).show();

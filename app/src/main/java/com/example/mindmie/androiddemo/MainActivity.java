@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_login:
-                    startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                     break;
                 case R.id.btn_register:
-                    startActivity(new Intent(getApplicationContext(),Question1Activity.class));
+                    startActivity(new Intent(getApplicationContext(),RegisActivity.class));
                     break;
             }
         }

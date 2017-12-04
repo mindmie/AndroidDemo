@@ -44,7 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="1">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -61,7 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -78,7 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -98,7 +101,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/btn_male_selector"
-            android:text="Next"/>
+            android:text="Next"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
