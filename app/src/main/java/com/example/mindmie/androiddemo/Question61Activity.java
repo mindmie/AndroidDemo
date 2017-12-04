@@ -5,17 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Question3Activity extends AppCompatActivity {
+public class Question61Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question3);
+        setContentView(R.layout.activity_question61);
         initView();
     }
     private void initView(){
         // To register click event to view
-        findViewById(R.id.btn_next).setOnClickListener(new Question3Activity.InnerOnClickListener());
+        findViewById(R.id.btn_next).setOnClickListener(new Question61Activity.InnerOnClickListener());
 
     }
 
@@ -26,7 +26,7 @@ public class Question3Activity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_next:
-                    startActivity(new Intent(getApplicationContext(),Question4Activity.class));
+                    startActivity(new Intent(getApplicationContext(),Question7Activity.class));
                     break;
 
             }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mindmie.androiddemo.QuestionActivity"
+    tools:context="com.example.mindmie.androiddemo.Question1Activity"
     android:orientation="vertical"
     android:background="@drawable/questionnair_bg">
     <TextView
@@ -14,7 +14,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:text="6 of 10 "/>
+        android:text="5 of 9 "/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,19 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Which is the thing that you more serious?"
+            android:text="Do you want to weight lose?"
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="30sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Preference dish or cost dish"
-            android:textAlignment="center"
-            android:textColor="#000"
-            android:textSize="18sp"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -55,11 +47,11 @@
             android:layout_marginTop="10dp"
             android:layout_weight="0.5">
             <Button
-                android:id="@+id/btn_preferDish"
+                android:id="@+id/btn_yes"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/btn_next_selector"
-                android:text="Preference dish"
+                android:text="yes"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -70,11 +62,11 @@
             android:layout_marginTop="10dp"
             android:layout_weight="0.5">
             <Button
-                android:id="@+id/btn_costDish"
+                android:id="@+id/btn_no"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/btn_next_selector"
-                android:text="cost dish"
+                android:text="No"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:textStyle="bold" />

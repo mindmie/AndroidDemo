@@ -9,17 +9,18 @@
         android:supportsRtl="true">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".RegisActivity"
             android:theme="@style/FullscreenTheme" />
-        <activity
-            android:name=".QuestionActivity"
-            android:label="Question"
-            android:theme="@style/AppTheme" />
         <activity
             android:name=".Question1Activity"
             android:label="Question"
@@ -29,15 +30,19 @@
             android:label="Question"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Question3Activity"
-            android:label="Question"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".Question4Activity"
             android:label="Question"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".Question9Activity"
+            android:label="Question"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".Question5Activity"
+            android:label="Question"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Question3Activity"
             android:label="Question"
             android:theme="@style/AppTheme" />
         <activity
@@ -53,15 +58,7 @@
             android:label="Question"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Question9Activity"
-            android:label="Question"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Question10Activity"
-            android:label="Question"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Question11Activity"
+            android:name=".Question61Activity"
             android:label="Question"
             android:theme="@style/AppTheme">
 
@@ -69,10 +66,7 @@
         <activity android:name=".ProfileActivity"
             android:label="Profile"
             android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
     </application>
 

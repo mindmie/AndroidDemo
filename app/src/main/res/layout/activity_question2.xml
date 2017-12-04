@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mindmie.androiddemo.QuestionActivity"
+    tools:context="com.example.mindmie.androiddemo.Question1Activity"
     android:orientation="vertical"
     android:background="@drawable/questionnair_bg">
     <TextView
@@ -14,7 +14,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:text="3 of 10 "/>
+        android:text="2 of 9 "/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,11 +23,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How often you exercise per week?"
-            android:textAlignment="center"
-            android:textColor="#000"
+            android:text="What is your birthday?"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:textAlignment="center"
+            android:textColor="#000"
             android:textSize="30sp"/>
     </LinearLayout>
 
@@ -39,37 +39,38 @@
         android:layout_marginRight="50dp"
         android:layout_marginTop="50dp"
         android:orientation="vertical">
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="@drawable/btn_next_selector"
-            android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
-            android:text="No Exercise"/>
+            android:background="@drawable/shape_round"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_date_range_black_24dp" />
+            <EditText
+                android:id="@+id/et_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:inputType="date"
+                android:text="dd/mm/yyy"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+        </LinearLayout>
         <Button
+            android:id="@+id/btn_next"
             android:layout_width="match_parent"
-            android:background="@drawable/btn_next_selector"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:text="1-3 days per week"/>
-        <Button
-            android:layout_width="match_parent"
-            android:background="@drawable/btn_next_selector"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:text="3-5 days per week"/>
-        <Button
-            android:layout_width="match_parent"
-            android:background="@drawable/btn_next_selector"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:text="everyday"/>
-        <Button
-            android:layout_width="match_parent"
-            android:background="@drawable/btn_next_selector"
-            android:layout_height="wrap_content"
-            android:text="2 time per day"/>
-
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_male_selector"
+            android:text="NEXT" />
     </LinearLayout>
 
 </LinearLayout>
-

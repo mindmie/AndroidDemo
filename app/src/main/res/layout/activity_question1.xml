@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mindmie.androiddemo.QuestionActivity"
+    tools:context="com.example.mindmie.androiddemo.Question1Activity"
     android:orientation="vertical"
     android:background="@drawable/questionnair_bg">
     <TextView
@@ -14,7 +14,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:text="2 of 10 "/>
+        android:text="1 of 9 "/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,9 +23,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What is your birthday?"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:text="What is your gender?"
             android:textAlignment="center"
             android:textColor="#000"
             android:textSize="30sp"/>
@@ -34,43 +34,45 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_round"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/ic_date_range_black_24dp" />
-            <EditText
-                android:id="@+id/et_date"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.5">
+            <Button
+                android:id="@+id/btn_male"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="20dp"
-                android:inputType="date"
-                android:text="dd/mm/yyy"
+                android:layout_height="match_parent"
+                android:text="MALE"
+                android:textStyle="bold"
+                android:textSize="20sp"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:background="@drawable/btn_next_selector"/>
         </LinearLayout>
-        <Button
-            android:id="@+id/btn_next"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btn_male_selector"
-            android:text="NEXT" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.5"
+            >
+            <Button
+                android:id="@+id/btn_female"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="FEMALE"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:background="@drawable/btn_next_selector"/>
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>
