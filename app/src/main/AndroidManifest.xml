@@ -9,9 +9,7 @@
         android:supportsRtl="true">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/FullscreenTheme">
-
-        </activity>
+            android:theme="@style/FullscreenTheme"></activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/FullscreenTheme" />
@@ -57,17 +55,22 @@
         <activity
             android:name=".Question9Activity"
             android:label="Question"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Question10Activity"
             android:label="Question"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Question11Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Question11Activity"
             android:label="Question"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity android:name=".ProfileActivity"
+            android:label="Profile"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

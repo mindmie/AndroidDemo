@@ -11,6 +11,7 @@
 
     <string-array name="flavour">
         <item>Nothing</item>
+        <item>Flavourless</item>
         <item>Sour</item>
         <item>Sweet</item>
         <item>Salty</item>
