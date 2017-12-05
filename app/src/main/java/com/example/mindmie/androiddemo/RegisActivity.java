@@ -1,26 +1,45 @@
 package com.example.mindmie.androiddemo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-public class RegisActivity extends AppCompatActivity {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseUser;
+
+public class RegisActivity extends AppCompatActivity  {
 
     private EditText etEmail;
     private EditText etPassword;
     private EditText etPassConfirm;
+    private ProgressDialog progessDialog;
+    private FirebaseAuth mAuth;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regis);
+
         bindView();
         initView();
+
     }
 
     private void bindView(){
@@ -28,25 +47,76 @@ public class RegisActivity extends AppCompatActivity {
         etEmail = (EditText) findViewById(R.id.et_email);
         etPassword = (EditText) findViewById(R.id.et_pwd);
         etPassConfirm = (EditText) findViewById(R.id.et_confirmPwd);
+        progessDialog = new ProgressDialog(this);
+
+        //firebase authen
+        mAuth = FirebaseAuth.getInstance();
+
+
     }
+
 
     private void initView(){
         findViewById(R.id.btn_register).setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                if(validateEditEmail()) {
-                    startActivity(new Intent(getApplicationContext(),Question1Activity.class));
-                    Toast.makeText(RegisActivity.this, "Okay. Create Your Account Complete.", Toast.LENGTH_SHORT).show();
-                    // SnackBar?
+
+                if(validateEditEmail()&&validateEditPass()&&validateEditPassConfirm()) {
+
+
+                    registerUser();
+
+
 
                 }
                 else{
-                    Toast.makeText(RegisActivity.this, "Pleat Fill in Again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisActivity.this, "Please Fill in Again", Toast.LENGTH_SHORT).show();
 
                 }
             }
-        });
 
+            private void registerUser(){
+                String emailUser = etEmail.getText().toString().trim();
+                String passwordUser = etPassword.getText().toString().trim();
+
+                mAuth.createUserWithEmailAndPassword(emailUser,passwordUser)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+                                if (task.isSuccessful()){
+                                    progessDialog.setMessage("Creating account ...");
+                                    progessDialog.show();
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    updateUI(user);
+
+                                }
+                                else{
+
+                                    updateUI(null);
+                                    Toast.makeText(RegisActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+
+                                }
+                            }
+                        });
+
+            }
+
+            private void updateUI(FirebaseUser user) {
+                if (user != null) {
+                    startActivity(new Intent(getApplicationContext(),Question1Activity.class));
+
+                } else {
+                    return;
+                }
+            }
+        }); //end of btn_register onClickListener
+
+
+
+        //-------------------------------validation here
         etEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -100,8 +170,11 @@ public class RegisActivity extends AppCompatActivity {
         });
 
 
-    }
 
+
+    } //end of init view
+
+    //---------------validation function here
 
 
     private boolean validateEditPass(){
@@ -144,8 +217,4 @@ public class RegisActivity extends AppCompatActivity {
 
         return isValidatedEmail;
     }
-
-
-
-
 }
