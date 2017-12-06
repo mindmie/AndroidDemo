@@ -1,6 +1,9 @@
 package com.example.mindmie.androiddemo;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,10 +12,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail;
     private EditText etPassword;
+    private ProgressDialog progessDialog;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +37,19 @@ public class LoginActivity extends AppCompatActivity {
 
         etEmail = (EditText) findViewById(R.id.et_email);
         etPassword = (EditText) findViewById(R.id.et_pwd);
+        progessDialog = new ProgressDialog(this);
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private void initView(){
         findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validateEditEmail()) {
-                    startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
-                    Toast.makeText(LoginActivity.this, "Okay. You Login Complete.", Toast.LENGTH_SHORT).show();
+                if(validateEditEmail()&&validateEditPass()) {
+
+                    loginUser();
+                    //startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                    //Toast.makeText(LoginActivity.this, "Okay. You Login Complete.", Toast.LENGTH_SHORT).show();
                     // SnackBar?
 
                 }
@@ -43,6 +58,49 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
             }
+
+            private void loginUser(){
+                String emailUser = etEmail.getText().toString().trim();
+                String passwordUser = etPassword.getText().toString().trim();
+
+                progessDialog.setMessage("Connecting ...");
+                progessDialog.show();
+
+                mAuth.signInWithEmailAndPassword(emailUser,passwordUser)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+
+                            progessDialog.dismiss();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        }
+                        else {
+                            progessDialog.dismiss();
+                            updateUI(null);
+                            Toast.makeText(LoginActivity.this, "Email or Password is wrong , please try again", Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    }
+                });
+
+            }
+
+            private void updateUI(FirebaseUser user) {
+                if (user != null) {
+                    Intent intent = new Intent( LoginActivity.this , ProfileActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+
+                } else {
+                    return;
+                }
+            }
+
         });
 
         etEmail.addTextChangedListener(new TextWatcher() {

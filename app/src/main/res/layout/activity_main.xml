@@ -62,10 +62,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="40dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:text="or"/>
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
@@ -75,14 +82,20 @@
                 android:textSize="20sp"
                 android:textColor="#fff"/>
         </LinearLayout>
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:layout_marginBottom="30dp"-->
-            <!--android:layout_marginLeft="50dp"-->
-            <!--android:layout_marginRight="50dp"-->
-            <!--android:orientation="vertical">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:orientation="vertical">
+            <com.google.android.gms.common.SignInButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_gg_signin">
+
+            </com.google.android.gms.common.SignInButton>
             <!--<Button-->
                 <!--android:id="@+id/btn_gg_register"-->
                 <!--android:layout_width="match_parent"-->
@@ -91,7 +104,7 @@
                 <!--android:text="Google Account"-->
                 <!--android:textSize="20sp"-->
                 <!--android:textColor="#fff"/>-->
-        <!--</LinearLayout>-->
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

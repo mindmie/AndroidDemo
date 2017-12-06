@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +30,7 @@ public class RegisActivity extends AppCompatActivity  {
     private EditText etPassConfirm;
     private ProgressDialog progessDialog;
     private FirebaseAuth mAuth;
+
 
 
 
@@ -54,7 +56,6 @@ public class RegisActivity extends AppCompatActivity  {
         //firebase authen
         mAuth = FirebaseAuth.getInstance();
 
-
     }
 
 
@@ -75,6 +76,8 @@ public class RegisActivity extends AppCompatActivity  {
             private void registerUser(){
                 String emailUser = etEmail.getText().toString().trim();
                 String passwordUser = etPassword.getText().toString().trim();
+                progessDialog.setMessage("Creating account ...");
+                progessDialog.show();
 
                 mAuth.createUserWithEmailAndPassword(emailUser,passwordUser)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -83,22 +86,23 @@ public class RegisActivity extends AppCompatActivity  {
 
 
                                 if (task.isSuccessful()){
-                                    progessDialog.setMessage("Creating account ...");
-                                    progessDialog.show();
+                                    progessDialog.dismiss();
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     updateUI(user);
 
                                 }
                                 else{
                                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                                        progessDialog.dismiss();
                                         Toast.makeText(getApplicationContext(),"This Account has already registered", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext() ,LoginActivity.class));
 
 
                                     }
                                     else{
+                                        progessDialog.dismiss();
                                         updateUI(null);
-                                        Toast.makeText(RegisActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(RegisActivity.this, "Registering was failed", Toast.LENGTH_SHORT).show();
                                     }
 
 
@@ -111,7 +115,11 @@ public class RegisActivity extends AppCompatActivity  {
 
             private void updateUI(FirebaseUser user) {
                 if (user != null) {
-                    startActivity(new Intent(getApplicationContext(),Question1Activity.class));
+
+                    Intent intent = new Intent( RegisActivity.this , Question1Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    //startActivity(new Intent(getApplicationContext(),Question1Activity.class));
 
                 } else {
                     return;
