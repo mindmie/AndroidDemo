@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegisActivity extends AppCompatActivity  {
@@ -42,6 +43,7 @@ public class RegisActivity extends AppCompatActivity  {
 
     }
 
+
     private void bindView(){
 
         etEmail = (EditText) findViewById(R.id.et_email);
@@ -63,16 +65,10 @@ public class RegisActivity extends AppCompatActivity  {
             public void onClick(View v) {
 
                 if(validateEditEmail()&&validateEditPass()&&validateEditPassConfirm()) {
-
-
                     registerUser();
-
-
-
                 }
                 else{
                     Toast.makeText(RegisActivity.this, "Please Fill in Again", Toast.LENGTH_SHORT).show();
-
                 }
             }
 
@@ -94,9 +90,18 @@ public class RegisActivity extends AppCompatActivity  {
 
                                 }
                                 else{
+                                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                                        Toast.makeText(getApplicationContext(),"This Account has already registered", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext() ,LoginActivity.class));
 
-                                    updateUI(null);
-                                    Toast.makeText(RegisActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                    else{
+                                        updateUI(null);
+                                        Toast.makeText(RegisActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                                    }
+
+
 
                                 }
                             }
