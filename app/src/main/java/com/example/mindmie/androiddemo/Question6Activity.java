@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Question6Activity extends AppCompatActivity {
     private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference GoalRef = mRootRef.child("Goal Weight :");
+    DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +27,23 @@ public class Question6Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("key");
+
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_next:
-                    startActivity(new Intent(getApplicationContext(),Question7Activity.class));
+                    Intent intent = new Intent( Question6Activity.this , Question7Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("key", text); // send key to next activity
+                    startActivity(intent);
+
                     EditText Weight = (EditText) findViewById(R.id.et_weight);
                     String stringWeight = Weight.getText().toString();
-                    GoalRef.setValue(stringWeight);
+
+                    databaseUser.child(text).child("username").child("Weight lose's Goal").setValue(stringWeight);
+
                     break;
 
             }

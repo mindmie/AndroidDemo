@@ -241,7 +241,7 @@
                         android:layout_weight="0.7"
                         android:src="@drawable/first"/>
                     <TextView
-                        android:id="@+id/spn_first_meat"
+                        android:id="@+id/tv_first_meat"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
@@ -262,7 +262,7 @@
                         android:layout_weight="0.7"
                         android:src="@drawable/second"/>
                     <TextView
-                        android:id="@+id/spn_second_meat"
+                        android:id="@+id/tv_second_meat"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
@@ -283,7 +283,7 @@
                         android:layout_weight="0.7"
                         android:src="@drawable/third"/>
                     <TextView
-                        android:id="@+id/spn_third_meat"
+                        android:id="@+id/tv_third_meat"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
@@ -318,7 +318,7 @@
                         android:layout_weight="0.7"
                         android:src="@drawable/first" />
                     <TextView
-                        android:id="@+id/spn_first_flavour"
+                        android:id="@+id/tv_first_flavour"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
@@ -339,7 +339,7 @@
                         android:layout_weight="0.7"
                         android:src="@drawable/second" />
                     <TextView
-                        android:id="@+id/spn_second_flavour"
+                        android:id="@+id/tv_second_flavour"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
@@ -360,7 +360,7 @@
                         android:layout_weight="0.7"
                         android:src="@drawable/third" />
                     <TextView
-                        android:id="@+id/spn_third_flavour"
+                        android:id="@+id/tv_third_flavour"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"

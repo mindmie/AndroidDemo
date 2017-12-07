@@ -9,8 +9,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Question5Activity extends AppCompatActivity {
-    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference WeightLoseRef = mRootRef.child("Want to Weight Lose:");
+    DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,16 +25,24 @@ public class Question5Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("key");
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_yes:
-                    startActivity(new Intent(getApplicationContext(),Question61Activity.class));
-                    WeightLoseRef.setValue("Yes");
+                    Intent intent1 = new Intent( Question5Activity.this , Question61Activity.class);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent1.putExtra("key", text); // send key to next activity
+                    startActivity(intent1);
+                    databaseUser.child(text).child("username").child("WeightLose").setValue("Yes");
                     break;
                 case R.id.btn_no:
-                    startActivity(new Intent(getApplicationContext(),Question6Activity.class));
-                    WeightLoseRef.setValue("No");
+                    Intent intent2 = new Intent(Question5Activity.this ,Question6Activity.class);
+                    intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent2.putExtra("key", text); // send key to next activity
+                    startActivity(intent2);
+                    databaseUser.child(text).child("username").child("WeightLose").setValue("No");
                     break;
             }
         }

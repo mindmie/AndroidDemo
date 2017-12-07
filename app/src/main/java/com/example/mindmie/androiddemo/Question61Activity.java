@@ -10,8 +10,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Question61Activity extends AppCompatActivity {
-    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference DayControlRef = mRootRef.child("Day Want Control :");
+    DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +26,24 @@ public class Question61Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("key");
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_next:
-                    startActivity(new Intent(getApplicationContext(),Question7Activity.class));
+                    Intent intent = new Intent( Question61Activity.this , Question7Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("key", text); // send key to next activity
+                    startActivity(intent);
+
                     EditText Day = (EditText) findViewById(R.id.et_goal_weight);
                     String stringDay = Day.getText().toString();
-                    DayControlRef.setValue(stringDay);
+
+
+                    databaseUser.child(text).child("username").child("Weight Control's Goal").setValue(stringDay);
+
                     break;
 
             }

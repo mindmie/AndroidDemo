@@ -10,10 +10,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Question8Activity extends AppCompatActivity {
-    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference RankMeat1Ref = mRootRef.child("Rank 1 Prefer Meat:");
-    DatabaseReference RankMeat2Ref = mRootRef.child("Rank 2 Prefer Meat:");
-    DatabaseReference RankMeat3Ref = mRootRef.child("Rank 3 Prefer Meat:");
+    DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,20 +26,29 @@ public class Question8Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("key");
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_next:
-                    startActivity(new Intent(getApplicationContext(),Question9Activity.class));
+                    Intent intent = new Intent( Question8Activity.this , Question9Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("key", text); // send key to next activity
+                    startActivity(intent);
+
+
                     Spinner rank1 = (Spinner) findViewById(R.id.spn_first_meat);
                     Spinner rank2 = (Spinner) findViewById(R.id.spn_second_meat);
                     Spinner rank3 = (Spinner) findViewById(R.id.spn_third_meat);
                     String StringRank1 = rank1.getSelectedItem().toString();
                     String StringRank2 = rank2.getSelectedItem().toString();
                     String StringRank3 = rank3.getSelectedItem().toString();
-                    RankMeat1Ref.setValue(StringRank1);
-                    RankMeat2Ref.setValue(StringRank2);
-                    RankMeat3Ref.setValue(StringRank3);
+
+                    databaseUser.child(text).child("username").child("Meat").child("1st").setValue(StringRank1);
+                    databaseUser.child(text).child("username").child("Meat").child("2nd").setValue(StringRank2);
+                    databaseUser.child(text).child("username").child("Meat").child("3rd").setValue(StringRank3);
                     break;
 
             }

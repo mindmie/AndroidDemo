@@ -2,6 +2,7 @@ package com.example.mindmie.androiddemo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisActivity extends AppCompatActivity  {
 
@@ -29,7 +32,14 @@ public class RegisActivity extends AppCompatActivity  {
     private EditText etPassword;
     private EditText etPassConfirm;
     private ProgressDialog progessDialog;
+
+    // Authen by email& password
     private FirebaseAuth mAuth;
+
+    // save user to database
+     DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
+        String key = databaseUser.push().getKey();
+
 
 
 
@@ -56,6 +66,7 @@ public class RegisActivity extends AppCompatActivity  {
         //firebase authen
         mAuth = FirebaseAuth.getInstance();
 
+
     }
 
 
@@ -67,15 +78,17 @@ public class RegisActivity extends AppCompatActivity  {
 
                 if(validateEditEmail()&&validateEditPass()&&validateEditPassConfirm()) {
                     registerUser();
+
                 }
                 else{
                     Toast.makeText(RegisActivity.this, "Please Fill in Again", Toast.LENGTH_SHORT).show();
                 }
             }
 
+
             private void registerUser(){
-                String emailUser = etEmail.getText().toString().trim();
-                String passwordUser = etPassword.getText().toString().trim();
+                final String emailUser = etEmail.getText().toString().trim();
+                final String passwordUser = etPassword.getText().toString().trim();
                 progessDialog.setMessage("Creating account ...");
                 progessDialog.show();
 
@@ -87,8 +100,14 @@ public class RegisActivity extends AppCompatActivity  {
 
                                 if (task.isSuccessful()){
                                     progessDialog.dismiss();
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    updateUI(user);
+                                    FirebaseUser uuser = mAuth.getCurrentUser();
+                                    updateUI(uuser);
+
+                                    // push user n pwd to database
+                                    databaseUser.child(key).child("username").child("E-mail").setValue(emailUser);
+                                    databaseUser.child(key).child("username").child("Password").setValue(passwordUser);
+
+                                    Toast.makeText(RegisActivity.this, "Registering complete", Toast.LENGTH_SHORT).show();
 
                                 }
                                 else{
@@ -118,14 +137,16 @@ public class RegisActivity extends AppCompatActivity  {
 
                     Intent intent = new Intent( RegisActivity.this , Question1Activity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("key",key); // send key to next activity
                     startActivity(intent);
-                    //startActivity(new Intent(getApplicationContext(),Question1Activity.class));
 
                 } else {
                     return;
                 }
             }
         }); //end of btn_register onClickListener
+
+
 
 
 
@@ -181,10 +202,6 @@ public class RegisActivity extends AppCompatActivity  {
                 validateEditPassConfirm();
             }
         });
-
-
-
-
     } //end of init view
 
     //---------------validation function here

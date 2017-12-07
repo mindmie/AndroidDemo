@@ -26,8 +26,8 @@ public class Question2Activity extends AppCompatActivity {
 
     private TextView displayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference BirthDateRef = mRootRef.child("BirthDate :");
+
+    DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,14 +91,24 @@ public class Question2Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("key");
+
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_next:
                     if(validateEditDate()) {
 
-                        startActivity(new Intent(getApplicationContext(),Question3Activity.class));
-                        BirthDateRef.setValue(displayDate.getText().toString());
+                        Intent intent = new Intent( Question2Activity.this , Question3Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.putExtra("key", text); // send key to next activity
+                        startActivity(intent);
+
+
+                        databaseUser.child(text).child("username").child("BirthDay").setValue(displayDate.getText().toString());
+
 
                     }
                     else{

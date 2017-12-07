@@ -9,8 +9,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Question4Activity extends AppCompatActivity {
-    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference exerciseRef = mRootRef.child("Exercise Per Week :");
+    DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,28 +30,51 @@ public class Question4Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("key");
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_noexercise:
-                    startActivity(new Intent(getApplicationContext(),Question5Activity.class));
-                    exerciseRef.setValue("No Exercise");
+                    Intent intent1 = new Intent( Question4Activity.this , Question5Activity.class);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent1.putExtra("key", text); // send key to next activity
+                    startActivity(intent1);
+
+                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("No Exercise");
                     break;
                 case R.id.btn_13day:
+                    Intent intent2 = new Intent( Question4Activity.this , Question5Activity.class);
+                    intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent2.putExtra("key", text); // send key to next activity
+                    startActivity(intent2);
                     startActivity(new Intent(getApplicationContext(),Question5Activity.class));
-                    exerciseRef.setValue("1 - 3 Day");
+                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("1 - 3 Day");
                     break;
                 case R.id.btn_35day:
+                    Intent intent3 = new Intent( Question4Activity.this , Question5Activity.class);
+                    intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent3.putExtra("key", text); // send key to next activity
+                    startActivity(intent3);
                     startActivity(new Intent(getApplicationContext(),Question5Activity.class));
-                    exerciseRef.setValue("3 - 5 Day");
+                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("3 - 5 Day");
                     break;
                 case R.id.btn_everyday:
+                    Intent intent4 = new Intent( Question4Activity.this , Question5Activity.class);
+                    intent4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent4.putExtra("key", text); // send key to next activity
+                    startActivity(intent4);
                     startActivity(new Intent(getApplicationContext(),Question5Activity.class));
-                    exerciseRef.setValue("Everyday");
+                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("Everyday");
                     break;
                 case R.id.btn_2timeday:
+                    Intent intent = new Intent( Question4Activity.this , Question5Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("key", text); // send key to next activity
+                    startActivity(intent);
                     startActivity(new Intent(getApplicationContext(),Question5Activity.class));
-                    exerciseRef.setValue("2 Time per Day");
+                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("2 Time per Day");
                     break;
             }
         }

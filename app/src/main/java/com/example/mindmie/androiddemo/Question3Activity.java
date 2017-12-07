@@ -12,9 +12,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Question3Activity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference WeightRef = mRootRef.child("Weight :");
-    DatabaseReference HeightRef = mRootRef.child("Height :");
+
+    DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
+
 
 
     @Override
@@ -32,17 +32,29 @@ public class Question3Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("key");
+
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_next:
-                    startActivity(new Intent(getApplicationContext(),Question4Activity.class));
+
+
+                    Intent intent = new Intent( Question3Activity.this , Question4Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("key", text); // send key to next activity
+                    startActivity(intent);
+
                     EditText Weight = (EditText) findViewById(R.id.et_weight);
                     EditText Height = (EditText) findViewById(R.id.et_height);
                     String stringWeight = Weight.getText().toString();
                     String stringHeight = Height.getText().toString();
-                    WeightRef.setValue(stringWeight);
-                    HeightRef.setValue(stringHeight);
+
+                    databaseUser.child(text).child("username").child("Height").setValue(stringHeight);
+                    databaseUser.child(text).child("username").child("Weight").setValue(stringWeight);
+
                     break;
 
             }

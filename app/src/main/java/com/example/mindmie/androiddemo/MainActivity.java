@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,9 +33,15 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1;
     private GoogleApiClient mGoogleApiClient;
 
+    //authen by google sign in
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final String TAG = "Main_Activity";
+
+    // save google sign-in to database
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         bindView();
         initView();
     }
+
+
+
+
+
 
     private void bindView() {
 
@@ -84,7 +98,9 @@ public class MainActivity extends AppCompatActivity {
                 signIn();
             }
         });
-    }
+    } // end of init view
+
+
 
     private void signIn(){
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -127,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
-                        // ...
                     }
                 });
 
