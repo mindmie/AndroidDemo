@@ -5,8 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Question5Activity extends AppCompatActivity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+public class Question5Activity extends AppCompatActivity {
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference WeightLoseRef = mRootRef.child("Want to Weight Lose:");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +31,11 @@ public class Question5Activity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btn_yes:
                     startActivity(new Intent(getApplicationContext(),Question61Activity.class));
+                    WeightLoseRef.setValue("Yes");
                     break;
                 case R.id.btn_no:
                     startActivity(new Intent(getApplicationContext(),Question6Activity.class));
+                    WeightLoseRef.setValue("No");
                     break;
             }
         }

@@ -5,8 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Question1Activity extends AppCompatActivity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+public class Question1Activity extends AppCompatActivity {
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference sexRef = mRootRef.child("Sex :");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +32,11 @@ public class Question1Activity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btn_male:
                     startActivity(new Intent(getApplicationContext(),Question2Activity.class));
+                    sexRef.setValue("male");
                     break;
                 case R.id.btn_female:
                     startActivity(new Intent(getApplicationContext(),Question2Activity.class));
+                    sexRef.setValue("female");
                     break;
             }
         }

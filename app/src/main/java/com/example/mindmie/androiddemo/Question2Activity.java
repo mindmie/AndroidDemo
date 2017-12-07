@@ -6,10 +6,17 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
@@ -19,6 +26,8 @@ public class Question2Activity extends AppCompatActivity {
 
     private TextView displayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference BirthDateRef = mRootRef.child("BirthDate :");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +62,29 @@ public class Question2Activity extends AppCompatActivity {
                 displayDate.setText(date);
             }
         };
+
+        displayDate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validateEditDate();
+            }
+        });
     }
 
     private void initView(){
         // To register click event to view
         findViewById(R.id.btn_next).setOnClickListener(new Question2Activity.InnerOnClickListener());
+
 
     }
 
@@ -68,10 +95,35 @@ public class Question2Activity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btn_next:
-                    startActivity(new Intent(getApplicationContext(),Question3Activity.class));
+                    if(validateEditDate()) {
+
+                        startActivity(new Intent(getApplicationContext(),Question3Activity.class));
+                        BirthDateRef.setValue(displayDate.getText().toString());
+
+                    }
+                    else{
+                        Toast.makeText(Question2Activity.this, "Please Enter BirthDate", Toast.LENGTH_SHORT).show();
+
+                    }
+
                     break;
 
             }
         }
+    }
+
+    private boolean validateEditDate(){
+        boolean isValidated = true;
+        if (displayDate.getText().toString().length() == 0) {
+            displayDate.setError("Please Enter BirthDate");
+            isValidated = false;
+        }
+        if (displayDate == null ) {
+            displayDate.setError("Please Enter BirthDate");
+            isValidated = false;
+        }
+
+
+        return isValidated;
     }
 }

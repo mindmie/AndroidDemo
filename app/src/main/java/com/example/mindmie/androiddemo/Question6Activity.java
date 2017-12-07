@@ -4,9 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Question6Activity extends AppCompatActivity {
-
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference GoalRef = mRootRef.child("Goal Weight :");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,9 @@ public class Question6Activity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btn_next:
                     startActivity(new Intent(getApplicationContext(),Question7Activity.class));
+                    EditText Weight = (EditText) findViewById(R.id.et_weight);
+                    String stringWeight = Weight.getText().toString();
+                    GoalRef.setValue(stringWeight);
                     break;
 
             }

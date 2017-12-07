@@ -5,8 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Question9Activity extends AppCompatActivity {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+public class Question9Activity extends AppCompatActivity {
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference ThingRef = mRootRef.child("You More Serious:");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +31,11 @@ public class Question9Activity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btn_preferDish:
                     startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                    ThingRef.setValue("PREFERENCE DISH");
                     break;
                 case R.id.btn_costDish:
                     startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                    ThingRef.setValue("CODE DISH");
                     break;
             }
         }
