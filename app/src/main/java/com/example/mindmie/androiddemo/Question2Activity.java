@@ -23,7 +23,7 @@ import java.util.Calendar;
 public class Question2Activity extends AppCompatActivity {
 
     private static final String TAG = "Question2Activity";
-
+    private String date;
     private TextView displayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -58,7 +58,7 @@ public class Question2Activity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
                 Log.d(TAG, "onDateSet: dd/mm/yyyy" + day + "/" + month + "/" + year);
-                String date = day + "/" + month + "/" + year;
+                date = day + "/" + month + "/" + year;
                 displayDate.setText(date);
             }
         };
@@ -124,14 +124,11 @@ public class Question2Activity extends AppCompatActivity {
 
     private boolean validateEditDate(){
         boolean isValidated = true;
-        if (displayDate.getText().toString().length() == 0) {
+        if (date == null) {
             displayDate.setError("Please Enter BirthDate");
             isValidated = false;
         }
-        if (displayDate == null ) {
-            displayDate.setError("Please Enter BirthDate");
-            isValidated = false;
-        }
+
 
 
         return isValidated;
