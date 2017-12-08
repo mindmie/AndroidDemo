@@ -65,7 +65,7 @@ public class Question6Activity extends AppCompatActivity {
 
                         String stringWeight = Weight.getText().toString();
 
-                        databaseUser.child(text).child("username").child("Weight lose's Goal").setValue(stringWeight);
+                        databaseUser.child("username").child(text).child("YourGoal").setValue(stringWeight);
                     }
                     else{
                         Toast.makeText(Question6Activity.this, "Please Enter Weight Goal", Toast.LENGTH_SHORT).show();

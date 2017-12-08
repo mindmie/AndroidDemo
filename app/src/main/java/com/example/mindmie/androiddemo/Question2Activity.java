@@ -107,7 +107,7 @@ public class Question2Activity extends AppCompatActivity {
                         startActivity(intent);
 
 
-                        databaseUser.child(text).child("username").child("BirthDay").setValue(displayDate.getText().toString());
+                        databaseUser.child("username").child(text).child("BirthDay").setValue(displayDate.getText().toString());
 
 
                     }

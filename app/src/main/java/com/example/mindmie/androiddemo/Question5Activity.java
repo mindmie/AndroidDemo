@@ -35,14 +35,16 @@ public class Question5Activity extends AppCompatActivity {
                     intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent1.putExtra("key", text); // send key to next activity
                     startActivity(intent1);
-                    databaseUser.child(text).child("username").child("WeightLose").setValue("Yes");
+
+                    databaseUser.child("username").child(text).child("WeightLose").setValue("Yes");
                     break;
                 case R.id.btn_no:
                     Intent intent2 = new Intent(Question5Activity.this ,Question6Activity.class);
                     intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent2.putExtra("key", text); // send key to next activity
                     startActivity(intent2);
-                    databaseUser.child(text).child("username").child("WeightLose").setValue("No");
+
+                    databaseUser.child("username").child(text).child("WeightLose").setValue("No");
                     break;
             }
         }

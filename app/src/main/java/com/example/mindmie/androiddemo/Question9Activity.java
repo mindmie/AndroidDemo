@@ -9,7 +9,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Question9Activity extends AppCompatActivity {
+
     DatabaseReference databaseUser = FirebaseDatabase.getInstance().getReference();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,7 @@ public class Question9Activity extends AppCompatActivity {
     // A class that handles all of click events
     // It is private from other android class since it is within the Activity.
     class InnerOnClickListener implements View.OnClickListener{
+
         Bundle bundle = getIntent().getExtras();
         String text = bundle.getString("key");
         @Override
@@ -32,19 +35,18 @@ public class Question9Activity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.btn_preferDish:
                     Intent intent1 = new Intent( Question9Activity.this , ProfileActivity.class);
-                    intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent1.putExtra("key", text); // send key to next activity
                     startActivity(intent1);
 
-                    databaseUser.child(text).child("username").child("Prefer").setValue("PREFERENCE DISH");
+                    databaseUser.child("username").child(text).child("Prefer").setValue("Yes");
                     break;
+
                 case R.id.btn_costDish:
                     Intent intent2 = new Intent( Question9Activity.this , ProfileActivity.class);
-                    intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent2.putExtra("key", text); // send key to next activity
                     startActivity(intent2);
 
-                    databaseUser.child(text).child("username").child("Prefer").setValue("CODE DISH");
+                    databaseUser.child("username").child(text).child("Prefer").setValue("No");
                     break;
             }
         }

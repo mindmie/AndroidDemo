@@ -65,7 +65,7 @@ public class Question61Activity extends AppCompatActivity {
                         String stringDay = Day.getText().toString();
 
 
-                        databaseUser.child(text).child("username").child("Weight Control's Goal").setValue(stringDay);
+                        databaseUser.child("username").child(text).child("YourGoal").setValue(stringDay);
 
 
 

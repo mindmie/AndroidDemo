@@ -41,7 +41,7 @@ public class Question4Activity extends AppCompatActivity {
                     intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent1.putExtra("key", text); // send key to next activity
                     startActivity(intent1);
-                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("No Exercise");
+                    databaseUser.child("username").child(text).child("ActivityLevel").setValue("No Exercise");
                     break;
                 case R.id.btn_13day:
                     Intent intent2 = new Intent( Question4Activity.this , Question5Activity.class);
@@ -49,7 +49,7 @@ public class Question4Activity extends AppCompatActivity {
                     intent2.putExtra("key", text); // send key to next activity
                     startActivity(intent2);
 
-                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("1 - 3 Day");
+                    databaseUser.child("username").child(text).child("ActivityLevel").setValue("1 - 3 Day");
                     break;
                 case R.id.btn_35day:
                     Intent intent3 = new Intent( Question4Activity.this , Question5Activity.class);
@@ -57,7 +57,7 @@ public class Question4Activity extends AppCompatActivity {
                     intent3.putExtra("key", text); // send key to next activity
                     startActivity(intent3);
 
-                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("3 - 5 Day");
+                    databaseUser.child("username").child(text).child("ActivityLevel").setValue("3 - 5 Day");
                     break;
                 case R.id.btn_everyday:
                     Intent intent4 = new Intent( Question4Activity.this , Question5Activity.class);
@@ -65,7 +65,7 @@ public class Question4Activity extends AppCompatActivity {
                     intent4.putExtra("key", text); // send key to next activity
                     startActivity(intent4);
 
-                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("Everyday");
+                    databaseUser.child("username").child(text).child("ActivityLevel").setValue("Everyday");
                     break;
                 case R.id.btn_2timeday:
                     Intent intent = new Intent( Question4Activity.this , Question5Activity.class);
@@ -73,7 +73,7 @@ public class Question4Activity extends AppCompatActivity {
                     intent.putExtra("key", text); // send key to next activity
                     startActivity(intent);
 
-                    databaseUser.child(text).child("username").child("ActivityLevel").setValue("2 Time per Day");
+                    databaseUser.child("username").child(text).child("ActivityLevel").setValue("2 Time per Day");
                     break;
             }
         }

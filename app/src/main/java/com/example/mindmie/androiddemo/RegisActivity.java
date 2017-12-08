@@ -41,10 +41,6 @@ public class RegisActivity extends AppCompatActivity  {
         String key = databaseUser.push().getKey();
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,8 +100,8 @@ public class RegisActivity extends AppCompatActivity  {
                                     updateUI(uuser);
 
                                     // push user n pwd to database
-                                    databaseUser.child(key).child("username").child("E-mail").setValue(emailUser);
-                                    databaseUser.child(key).child("username").child("Password").setValue(passwordUser);
+                                    databaseUser.child("username").child(key).child("E-mail").setValue(emailUser);
+                                    databaseUser.child("username").child(key).child("Password").setValue(passwordUser);
 
                                     Toast.makeText(RegisActivity.this, "Registering complete", Toast.LENGTH_SHORT).show();
 

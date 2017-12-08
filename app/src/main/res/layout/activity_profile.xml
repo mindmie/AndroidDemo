@@ -30,22 +30,20 @@
                 android:textAlignment="center"
                 android:textColor="#000" />
             <TextView
-                android:id="@+id/t_weight_goal"
-
+                android:id="@+id/tv_your_goal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:text="60"
                 android:textAlignment="center"
+                android:text="10"
 
 
                 android:textSize="60sp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/tv_your_goal_unit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="kg"
                 android:textSize="16sp"
                 android:textAlignment="center"
                 android:textColor="#000" />
@@ -135,14 +133,12 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/weight" />
                 <TextView
-                    android:id="@+id/t_weight"
+                    android:id="@+id/tv_weight"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textAlignment="center"
 
                     android:layout_weight="0.5"
-                    android:text="80"
-
                     android:textSize="30sp" />
                 <TextView
                     android:textColor="#000"
@@ -168,12 +164,11 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/height" />
                 <TextView
-                    android:id="@+id/t_height"
+                    android:id="@+id/tv_height"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:layout_weight="0.5"
-                    android:text="166"
                     android:textSize="30sp" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -201,13 +196,12 @@
             android:textSize="20sp"/>
         <TextView
             android:textAlignment="center"
-            android:id="@+id/t_activity_level"
+            android:id="@+id/tv_activity_level"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:textSize="20sp"
-            android:text="No Exercise"/>
+            android:textSize="20sp" />
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -246,7 +240,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:textAlignment="center"
-                        android:text="Chicken"
+
                         android:textSize="25sp"
                         android:layout_weight="0.3" />
                 </LinearLayout>
@@ -267,7 +261,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:textAlignment="center"
-                        android:text="Pork"
+
                         android:textSize="20sp"
                         android:layout_weight="0.3" />
                 </LinearLayout>
@@ -288,7 +282,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:textAlignment="center"
-                        android:text="Seafood"
+
                         android:textSize="15sp"
                         android:layout_weight="0.3" />
                 </LinearLayout>
@@ -323,7 +317,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:layout_weight="0.3"
-                        android:text="Salty"
+
                         android:textAlignment="center"
                         android:textSize="25sp" />
                 </LinearLayout>
@@ -344,7 +338,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:layout_weight="0.3"
-                        android:text="Souring"
+
                         android:textAlignment="center"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -365,7 +359,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:layout_weight="0.3"
-                        android:text="Sweet"
+
                         android:textAlignment="center"
                         android:textSize="15sp" />
                 </LinearLayout>

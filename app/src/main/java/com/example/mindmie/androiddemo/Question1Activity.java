@@ -52,7 +52,7 @@ public class Question1Activity extends AppCompatActivity {
                     startActivity(intent_male);
 
                     // push gender to database
-                    databaseUser.child(text).child("username").child("Gender").setValue("Male");
+                    databaseUser.child("username").child(text).child("Gender").setValue("Male");
 
                     // update to database
 //                   HashMap<String,Object> postValues = new HashMap<>();

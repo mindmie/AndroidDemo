@@ -45,9 +45,9 @@ public class Question7Activity extends AppCompatActivity {
                     String StringRank3 = rank3.getSelectedItem().toString();
 
 
-                    databaseUser.child(text).child("username").child("Flavour").child("1st").setValue(StringRank1);
-                    databaseUser.child(text).child("username").child("Flavour").child("2nd").setValue(StringRank2);
-                    databaseUser.child(text).child("username").child("Flavour").child("3rd").setValue(StringRank3);
+                    databaseUser.child("username").child(text).child("Flavour").child("1st").setValue(StringRank1);
+                    databaseUser.child("username").child(text).child("Flavour").child("2nd").setValue(StringRank2);
+                    databaseUser.child("username").child(text).child("Flavour").child("3rd").setValue(StringRank3);
 
 
                     break;

@@ -2,6 +2,7 @@ package com.example.mindmie.androiddemo;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -92,8 +95,10 @@ public class LoginActivity extends AppCompatActivity {
 
             private void updateUI(FirebaseUser user) {
                 if (user != null) {
+
                     Intent intent = new Intent( LoginActivity.this , ProfileActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("email" , user.getEmail().toString());
                     startActivity(intent);
 
                 } else {

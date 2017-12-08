@@ -86,8 +86,8 @@ public class Question3Activity extends AppCompatActivity {
                         startActivity(intent);
                         String stringWeight = Weight.getText().toString();
                         String stringHeight = Height.getText().toString();
-                        databaseUser.child(text).child("username").child("Height").setValue(stringHeight);
-                        databaseUser.child(text).child("username").child("Weight").setValue(stringWeight);
+                        databaseUser.child("username").child(text).child("Height").setValue(stringHeight);
+                        databaseUser.child("username").child(text).child("Weight").setValue(stringWeight);
 
 
 
